@@ -15,7 +15,7 @@ p.vol_in = 1*1e-18*1e3; % L
 p.vol_out = 1000*1e-18*1e3;
 p.R = 8.317;
 p.T = 298;
-p.area = 1009e-12;
+p.area = 1000e-12;
 
 
 
@@ -26,10 +26,13 @@ p.Kin_0  = 150e-3; % M
 p.Kout_0 = 50e-3; % M
 
 p.P_Cl_max = 2.45e-6; % m/s 
-p.P_K_max  = 15e-6; % m/s
+p.P_K_max  = 5e-6; % m/s
+
+p.z_K  = 1;
+p.z_Cl = -1;
 
 % GORK parameters
-p.S = 21e-3;
+p.S    = 21e-3;
 p.V1_2 = -7e-3;
 
 
@@ -41,7 +44,7 @@ tau_diffusion = 1e-3*p.vol_in/(p.area*p.P_Cl_max)
 % OST1* ligand concentration changes
 
 Li = 0;
-Lf = 500; % muM
+Lf = 5; % muM
 tstep = 1; 
 steepness = 0;
 f_L = @(t)(Li + Lf*(t>tstep).*((t-tstep).^2)./(steepness+(t-tstep).^2));
